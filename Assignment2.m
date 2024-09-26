@@ -114,3 +114,32 @@ title('Data vs Model Prediction');
 xlabel('x');
 ylabel('y');
 grid on;
+
+% Residual of the polynomial estimate 
+res_poly = (1/N) * sum((y - y_pred).^2);
+disp(['Residual for the polynomial estimate : ' num2str(res_poly)])
+
+%% Fit a line 
+H2 = [ones(N, 1), x];
+theta2 = (H2' * H2) \ (H2' * y);
+a_hat2 = theta2(1); 
+b_hat2 = theta2(2); 
+disp(['Estimated a1: ' num2str(a_hat2)]);
+disp(['Estimated b1: ' num2str(b_hat2)]);
+y_pred2 = a_hat2 + b_hat2 * x;
+
+figure(2);
+scatter(x, y, 'filled'); 
+hold on;
+plot(x, y_pred2, 'r-', 'LineWidth', 2); 
+legend('Data', 'Model Prediction');
+title('Data vs Model Prediction');
+xlabel('x');
+ylabel('y');
+grid on;
+
+% Residual of the linear estimate 
+res_lin = (1/N) * sum((y - y_pred2).^2);
+disp(['Residual for the linear estimate : ' num2str(res_lin)])
+
+
