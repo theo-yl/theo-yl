@@ -143,3 +143,19 @@ res_lin = (1/N) * sum((y - y_pred2).^2);
 disp(['Residual for the linear estimate : ' num2str(res_lin)])
 
 
+%% Second part 
+clear all 
+close all
+clc
+
+% Load data
+load('input.mat');  
+load('output.mat'); 
+
+N = length(y);
+
+% Split data
+u_est = u(1:N/2);   
+y_est = y(1:N/2);   
+u_val = u(N/2+1:end); 
+y_val = y(N/2+1:end); 
