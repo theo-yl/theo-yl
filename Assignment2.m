@@ -17,7 +17,7 @@ rng(1);
 x = rand(N, 1) * 50; % Uniform distribution in [0, 50]
 
 % Generate noise e
-e = sigma * randn(N, 1); % Gaussian noise (mu = 0)
+e = sigma^2 * randn(N, 1); % Gaussian noise (mu = 0)
 
 % Generate output y according to the relation
 y = a0 + b0 * x + e;
@@ -78,7 +78,7 @@ rng(1);
 x = rand(N, 1) * 50; 
 
 % Generate noise e
-e = sigma * randn(N, 1); 
+e = sigma^2 * randn(N, 1); 
 
 % Generate output y according to the polynomial relation
 y = a0 + b0 * x + c0 * x.^2 + e;
